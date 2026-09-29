@@ -1,0 +1,1189 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Bisma C | Mathematics Educator • Python • Data Science</title>  <meta name="description" content="Bisma C — Mathematics Educator, Python & Data Science Learner, aspiring Data Scientist.">
+  <meta name="author" content="Bisma C">  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1728;
+      --card: rgba(16, 34, 57, 0.72);
+      --card-border: rgba(86, 214, 255, 0.16);
+      --cyan: #56d6ff;
+      --purple: #9b8cff;
+      --text: #f4f8ff;
+      --muted: #a9b8ca;
+      --gradient: linear-gradient(135deg, #56d6ff, #9b8cff);
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(86,214,255,.12), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(155,140,255,.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7,17,31,.75);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .95rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .menu {
+      display: none;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 90px;
+      position: relative;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(86,214,255,.25);
+      border-radius: 50px;
+      color: var(--cyan);
+      background: rgba(86,214,255,.06);
+      font-size: .85rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: .98;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    h1 .gradient {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      font-size: 1.25rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: .3s;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: #07111f;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(86,214,255,.12);
+    }
+
+    /* PROFILE CARD */
+
+    .profile-card {
+      position: relative;
+      padding: 35px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+    }
+
+    .profile-circle {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      background: var(--gradient);
+      box-shadow: 0 0 50px rgba(86,214,255,.18);
+    }
+
+    .profile-card h3 {
+      font-size: 1.5rem;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .floating {
+      position: absolute;
+      padding: 10px 15px;
+      border-radius: 12px;
+      background: #102239;
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: .8rem;
+      color: var(--cyan);
+    }
+
+    .f1 { top: 15px; right: -15px; }
+    .f2 { bottom: 45px; left: -25px; color: var(--purple); }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 12px auto 0;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(15px);
+    }
+
+    .glass h3 {
+      margin-bottom: 15px;
+      color: var(--cyan);
+    }
+
+    .glass p {
+      color: var(--muted);
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 28px;
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      transition: .3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(86,214,255,.4);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 8px 13px;
+      border-radius: 30px;
+      background: rgba(86,214,255,.07);
+      border: 1px solid rgba(86,214,255,.13);
+      color: #d7f7ff;
+      font-size: .85rem;
+    }
+
+    /* JOURNEY */
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--cyan), var(--purple));
+      opacity: .35;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 35px;
+    }
+
+    .dot {
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gradient);
+      box-shadow: 0 0 20px rgba(86,214,255,.25);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .timeline-item span {
+      color: var(--cyan);
+      font-size: .85rem;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project {
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-top {
+      height: 130px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(86,214,255,.25), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(155,140,255,.22), transparent 35%),
+        #102239;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 15px;
+    }
+
+    .project-link {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    /* EDUCATION */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .education-card {
+      padding: 28px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .education-card .year {
+      color: var(--cyan);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .education-card h3 {
+      margin: 10px 0 7px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      padding: 55px 30px;
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at center, rgba(86,214,255,.12), transparent 55%),
+        var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .contact-box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social {
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .3s;
+    }
+
+    .social:hover {
+      color: var(--cyan);
+      border-color: rgba(86,214,255,.3);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer strong {
+      color: var(--cyan);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero p {
+        margin: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .skills-grid,
+      .projects,
+      .education-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .profile-card {
+        max-width: 450px;
+        margin: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #0b1728;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section {
+        padding: 75px 0;
+      }
+
+      .skills-grid,
+      .projects,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .profile-circle {
+        width: 145px;
+        height: 145px;
+        font-size: 3rem;
+      }
+
+      .f1 {
+        right: 5px;
+      }
+
+      .f2 {
+        left: 5px;
+      }
+    }
+  </style></head><body>  <!-- NAVIGATION -->  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Bisma<span>.</span></a>  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="menu" onclick="toggleMenu()">☰</div>
+</div>
+
+  </nav>  <!-- HERO -->  <header id="home">
+    <div class="container hero">  <div>
+    <span class="badge">MATHEMATICS • PYTHON • DATA SCIENCE</span>
+
+    <h1>
+      Hi, I'm<br>
+      <span class="gradient">Bisma C.</span>
+    </h1>
+
+    <h2>
+      Mathematics Educator • Python & Data Science Learner • Aspiring Data Scientist
+    </h2>
+
+    <p>
+      I am a passionate Mathematics educator building my next chapter in
+      technology. My foundation in mathematics and education is now growing
+      into Python, Data Science, Artificial Intelligence and Machine Learning.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn btn-primary">Explore My Work</a>
+      <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+    </div>
+  </div>
+
+
+  <div class="profile-card">
+
+    <div class="floating f1">Python 🐍</div>
+    <div class="floating f2">Data Science 📊</div>
+
+    <div class="profile-circle">BC</div>
+
+    <h3>Bisma C.</h3>
+    <p>Mathematics • Technology • Learning</p>
+
+    <div class="tags">
+      <span class="tag">Mathematics</span>
+      <span class="tag">Python</span>
+      <span class="tag">Data Science</span>
+      <span class="tag">AI / ML</span>
+    </div>
+
+  </div>
+
+</div>
+
+  </header>  <!-- ABOUT -->  <section id="about">
+    <div class="container">  <div class="section-title">
+    <span>About Me</span>
+    <h2>A Teacher With a Data-Driven Future</h2>
+    <p>
+      My journey connects education, mathematics and technology.
+    </p>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="glass">
+      <h3>👩‍🏫 My Foundation</h3>
+
+      <p>
+        I am a Mathematics educator with more than 5 years of experience
+        in secondary education and competitive examination coaching.
+        I enjoy simplifying difficult mathematical ideas and helping
+        students understand concepts step by step.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Mathematics Education</span>
+        <span class="tag">Secondary Education</span>
+        <span class="tag">Exam Coaching</span>
+        <span class="tag">Student Guidance</span>
+      </div>
+    </div>
+
+
+    <div class="glass">
+      <h3>💻 My Next Chapter</h3>
+
+      <p>
+        I am currently developing my skills in Python, Data Science,
+        Artificial Intelligence and Machine Learning. My mathematical
+        background gives me a strong foundation for analytical and
+        data-driven problem solving.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Machine Learning</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </section>  <!-- SKILLS -->  <section id="skills">
+    <div class="container">  <div class="section-title">
+    <span>What I Do</span>
+    <h2>Skills & Abilities</h2>
+    <p>
+      Combining teaching expertise with an emerging technology skill set.
+    </p>
+  </div>
+
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <div class="skill-icon">📐</div>
+      <h3>Mathematics</h3>
+      <p>
+        Strong foundation in mathematical concepts with the ability
+        to explain complex problems in simple, understandable steps.
+      </p>
+    </div>
+
+
+    <div class="skill-card">
+      <div class="skill-icon">👩‍🏫</div>
+      <h3>Teaching</h3>
+      <p>
+        Lesson planning, classroom management, differentiated instruction,
+        student counselling and concept-based learning.
+      </p>
+    </div>
+
+
+    <div class="skill-card">
+      <div class="skill-icon">🐍</div>
+      <h3>Python</h3>
+      <p>
+        Developing practical Python programming skills for automation,
+        problem solving, data analysis and future data science projects.
+      </p>
+    </div>
+
+
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <h3>Data Science</h3>
+      <p>
+        Learning data analysis, data-driven problem solving,
+        visualization and the foundations of machine learning.
+      </p>
+    </div>
+
+
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h3>AI & Machine Learning</h3>
+      <p>
+        Exploring artificial intelligence and machine learning
+        concepts with a strong mathematical foundation.
+      </p>
+    </div>
+
+
+    <div class="skill-card">
+      <div class="skill-icon">💡</div>
+      <h3>Problem Solving</h3>
+      <p>
+        Breaking complex problems into smaller steps and creating
+        practical, logical solutions.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="glass" style="margin-top:25px;">
+
+    <h3>Technical & Professional Skills</h3>
+
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Data Science</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Artificial Intelligence</span>
+      <span class="tag">HTML</span>
+      <span class="tag">GitHub</span>
+      <span class="tag">Git</span>
+      <span class="tag">Data Analysis</span>
+      <span class="tag">Mathematics</span>
+      <span class="tag">Algebra</span>
+      <span class="tag">Geometry</span>
+      <span class="tag">Calculus</span>
+      <span class="tag">CBSE Mathematics</span>
+      <span class="tag">State Board Mathematics</span>
+      <span class="tag">Lesson Planning</span>
+      <span class="tag">Classroom Management</span>
+      <span class="tag">Curriculum Development</span>
+      <span class="tag">Online Tutoring</span>
+      <span class="tag">Student Counselling</span>
+      <span class="tag">Assessment & Evaluation</span>
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- JOURNEY -->  <section id="journey">
+    <div class="container">  <div class="section-title">
+    <span>My Journey</span>
+    <h2>From Mathematics to Data Science</h2>
+    <p>
+      A continuous journey of teaching, learning and building.
+    </p>
+  </div>
+
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+
+      <span>FOUNDATION</span>
+
+      <h3>B.Sc. in Mathematics</h3>
+
+      <p>
+        Built a strong mathematical foundation that continues to
+        support my analytical and problem-solving abilities.
+      </p>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+
+      <span>EDUCATION</span>
+
+      <h3>B.Ed. in Mathematics</h3>
+
+      <p>
+        Developed professional teaching skills and a deeper understanding
+        of classroom learning and student development.
+      </p>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+
+      <span>PROFESSIONAL EXPERIENCE</span>
+
+      <h3>Mathematics Educator</h3>
+
+      <p>
+        More than 5 years of experience in secondary education and
+        competitive examination coaching.
+      </p>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+
+      <span>CURRENT CHAPTER</span>
+
+      <h3>PG Diploma in Data Science with AI</h3>
+
+      <p>
+        Currently expanding my skills into Python, Data Science,
+        Artificial Intelligence and Machine Learning.
+      </p>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+
+      <span>FUTURE</span>
+
+      <h3>Mathematics + Technology</h3>
+
+      <p>
+        My goal is to combine mathematical thinking, education and
+        technology to create meaningful data-driven solutions.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- PROJECTS -->  <section id="projects">
+    <div class="container">  <div class="section-title">
+    <span>My Work</span>
+    <h2>Projects & Practice</h2>
+    <p>
+      Small projects that reflect my learning and growing technical skills.
+    </p>
+  </div>
+
+
+  <div class="projects">
+
+    <div class="project">
+
+      <div class="project-top">🧮</div>
+
+      <div class="project-content">
+        <h3>Scientific Calculator</h3>
+
+        <p>
+          A modern browser-based scientific calculator built to
+          practise HTML, CSS and JavaScript concepts.
+        </p>
+
+        <span class="project-link">GitHub Project →</span>
+      </div>
+
+    </div>
+
+
+    <div class="project">
+
+      <div class="project-top">📝</div>
+
+      <div class="project-content">
+        <h3>Student Grade System</h3>
+
+        <p>
+          A student-focused project for calculating and presenting
+          academic grades using programming logic.
+        </p>
+
+        <span class="project-link">GitHub Project →</span>
+      </div>
+
+    </div>
+
+
+    <div class="project">
+
+      <div class="project-top">📋</div>
+
+      <div class="project-content">
+        <h3>To-Do Application</h3>
+
+        <p>
+          A practical productivity application created to strengthen
+          web development and JavaScript skills.
+        </p>
+
+        <span class="project-link">GitHub Project →</span>
+      </div>
+
+    </div>
+
+
+    <div class="project">
+
+      <div class="project-top">🎮</div>
+
+      <div class="project-content">
+        <h3>Interactive Web Games</h3>
+
+        <p>
+          Interactive browser projects created while practising
+          programming logic, events and user interaction.
+        </p>
+
+        <span class="project-link">GitHub Projects →</span>
+      </div>
+
+    </div>
+
+
+    <div class="project">
+
+      <div class="project-top">📊</div>
+
+      <div class="project-content">
+        <h3>Student Grade Prediction</h3>
+
+        <p>
+          A learning project exploring how student academic data
+          can be represented and analysed through technology.
+        </p>
+
+        <span class="project-link">GitHub Project →</span>
+      </div>
+
+    </div>
+
+
+    <div class="project">
+
+      <div class="project-top">💻</div>
+
+      <div class="project-content">
+        <h3>Python Practice</h3>
+
+        <p>
+          A growing collection of Python exercises covering
+          programming fundamentals, logic and problem solving.
+        </p>
+
+        <span class="project-link">GitHub →</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- EDUCATION -->  <section id="education">
+    <div class="container">  <div class="section-title">
+    <span>Education</span>
+    <h2>Academic Background</h2>
+  </div>
+
+
+  <div class="education-grid">
+
+    <div class="education-card">
+      <div class="year">DEGREE</div>
+      <h3>B.Sc. Mathematics</h3>
+      <p>
+        Academic foundation in mathematics, analytical thinking
+        and quantitative problem solving.
+      </p>
+    </div>
+
+
+    <div class="education-card">
+      <div class="year">PROFESSIONAL EDUCATION</div>
+      <h3>B.Ed. Mathematics</h3>
+      <p>
+        Professional teacher education focused on mathematics
+        teaching and student learning.
+      </p>
+    </div>
+
+
+    <div class="education-card">
+      <div class="year">CURRENTLY LEARNING</div>
+      <h3>PG Diploma — Data Science with AI</h3>
+      <p>
+        Developing knowledge in Python, Data Science, Artificial
+        Intelligence and Machine Learning.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- TEACHING EXPERTISE -->  <section>
+    <div class="container">  <div class="section-title">
+    <span>Teaching</span>
+    <h2>My Teaching Strengths</h2>
+  </div>
+
+
+  <div class="about-grid">
+
+    <div class="glass">
+
+      <h3>📚 Subject Expertise</h3>
+
+      <div class="tags">
+        <span class="tag">Algebra</span>
+        <span class="tag">Geometry</span>
+        <span class="tag">Calculus</span>
+        <span class="tag">Arithmetic</span>
+        <span class="tag">Derivatives</span>
+        <span class="tag">CBSE Mathematics</span>
+        <span class="tag">State Board Mathematics</span>
+        <span class="tag">Competitive Exams</span>
+      </div>
+
+    </div>
+
+
+    <div class="glass">
+
+      <h3>🎯 Teaching Approach</h3>
+
+      <div class="tags">
+        <span class="tag">Step-by-step Guidance</span>
+        <span class="tag">Concept Clarity</span>
+        <span class="tag">Interactive Learning</span>
+        <span class="tag">Previous Paper Analysis</span>
+        <span class="tag">Mock Tests</span>
+        <span class="tag">Differentiated Instruction</span>
+        <span class="tag">Student Support</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- CONTACT -->  <section id="contact"><div class="container">
+
+  <div class="contact-box">
+
+    <h2>Let's Connect</h2>
+
+    <p>
+      I am always interested in learning, collaborating and exploring
+      opportunities where Mathematics meets Technology.
+    </p>
+
+    <div class="socials">
+
+      <a class="social"
+         href="https://github.com/bismac707"
+         target="_blank">
+        GitHub
+      </a>
+
+      <a class="social"
+         href="https://www.linkedin.com/in/bismac707/"
+         target="_blank">
+        LinkedIn
+      </a>
+
+      <a class="social"
+         href="mailto:your-email@example.com">
+        Email
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </section>  <!-- FOOTER -->  <footer><div class="container">
+
+  <p>
+    © <span id="year"></span>
+    <strong>Bisma C.</strong>
+    — Mathematics • Python • Data Science
+  </p>
+
+  <p style="margin-top:6px;">
+    Think. Learn. Build.
+  </p>
+
+</div>
+
+  </footer>  <script>
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script></body>
+</html>
